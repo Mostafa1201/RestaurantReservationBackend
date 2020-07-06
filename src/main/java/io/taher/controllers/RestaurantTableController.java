@@ -40,16 +40,6 @@ public class RestaurantTableController {
 		return RestaurantTableService.createRestaurantTable(requestObject);
 	}
 
-	@RequestMapping(value = "/tables/{id}", method = RequestMethod.PUT)
-	public void editRestaurantTable(@RequestBody RestaurantTable table, @PathVariable int id) {
-		RestaurantTableService.editRestaurantTable(table, id);
-	}
-
-	@RequestMapping(value = "/tables/{id}", method = RequestMethod.DELETE)
-	public void deleteRestaurantTable(@RequestBody RestaurantTable table) {
-		RestaurantTableService.deleteRestaurantTable(table);
-	}
-	
 	@RequestMapping(value = "/tables/available", method = RequestMethod.POST,
 			produces=MediaType.APPLICATION_JSON_VALUE,consumes = MediaType.APPLICATION_JSON_VALUE)
 	public Map<String, Object> getAvailableRestaurantTables(

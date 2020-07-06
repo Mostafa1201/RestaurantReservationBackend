@@ -50,14 +50,6 @@ public class RestaurantTableService {
 		return restaurantTableRepository.save(table);
 	}
 
-	public void editRestaurantTable(RestaurantTable table, int id) {
-		restaurantTableRepository.save(table);
-	}
-
-	public void deleteRestaurantTable(RestaurantTable table) {
-		restaurantTableRepository.delete(table);
-	}
-	
 	/**
 	 * Get available restaurant tables for customers 
 	 * This function has 2 filters 
@@ -76,7 +68,7 @@ public class RestaurantTableService {
 		Pageable pageable = (Pageable) PageRequest.of(page, size);
 		logger.warn("userType: "+ userType);
 		Page<RestaurantTable> result;
-		if(userType.equals("admin")) {
+		if(userType.equals("admin")) { // if user type admin show all defined tables
 			result = restaurantTableRepository.findAll(pageable);
 		}
 		else {

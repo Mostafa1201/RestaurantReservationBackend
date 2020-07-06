@@ -28,7 +28,7 @@ public class IsAuthorized extends OncePerRequestFilter {
 		final String requestTokenHeader = request.getHeader("Authorization");
 		String username = null;
 		String jwtToken = null;
-		// JWT Token is in the form "JWT token". Remove Bearer word and get
+		// JWT Token is in the form "JWT token". Remove JWT word and get
 		// only the Token
 		if (requestTokenHeader != null && requestTokenHeader.startsWith("JWT ")) {
 			jwtToken = requestTokenHeader.substring(4);
